@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "647595922757",
+    "project_id": "helloand",
+    "storage_bucket": "helloand.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647595922757:android:17b4d95f1e9212e9e21a2c",
+        "android_client_info": {
+          "package_name": "com.nana.chatt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647595922757-0sr74963oc6imv5f6dqqhovf9ulf32sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa1YzseTv5K3aPICAdWbhXRc_cUongvc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647595922757-0sr74963oc6imv5f6dqqhovf9ulf32sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
