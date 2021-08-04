@@ -22,6 +22,12 @@ public class ChattAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private List<chatt> chattList;
 
+    public void addChatList(chatt chat) {
+        chattList.add(chat);
+
+        notifyItemInserted(chattList.size()-1);
+    }
+
     /*
     RecyclerView 가 화면에 그릴 데이터들을 전달받을 통로
     @param chattList
