@@ -12,12 +12,20 @@
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+
+            android:value="face"/>
+
             android:value="face"
             />
 
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.HelloChatt.NoActionBar"
+            >
+
+            <!--intent를 써놓은곳은 맨 처음 화면에 나올때 나오므로 맨 처음 화면으로 하고 싶다면 intent를 추가하기-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
