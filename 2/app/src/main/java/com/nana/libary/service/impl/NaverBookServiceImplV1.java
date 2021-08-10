@@ -2,17 +2,32 @@ package com.nana.libary.service.impl;
 
 import android.util.Log;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.nana.libary.adapter.BookViewAdapter;
 import com.nana.libary.config.NaverAPI;
 import com.nana.libary.model.NaverBookDTO;
 import com.nana.libary.model.NaverParent;
 import com.nana.libary.service.NaverBookService;
 import com.nana.libary.service.RetrofitAPIClient;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NaverBookServiceImplV1 implements NaverBookService {
+
+    protected  RecyclerView recyclerView;
+
+    // 자동생성자
+    public NaverBookServiceImplV1(RecyclerView recyclerView) {
+        // 이렇게 초기화 후 코드를 적음으로써 recyclerView를
+        // 이용할 수 있게 준비함
+        this.recyclerView = recyclerView;
+    }
 
     public NaverBookDTO getBooks(String search) {
 
@@ -38,6 +53,7 @@ public class NaverBookServiceImplV1 implements NaverBookService {
          */
 
         //Call<NaverParent> retrofitReturn 이벤트를 받을 대상
+        // API에서 연결을 하는 것
         Call<NaverParent> retrofitReturn = RetrofitAPIClient.getAPIClient()
                 .getBook(NaverAPI.CLIENT_ID,NaverAPI.CLIENT_SECRET
                         ,search,1,10);
@@ -51,8 +67,10 @@ public class NaverBookServiceImplV1 implements NaverBookService {
          *  Skeletone Code
          */
         //이벤트 설정
+        //enqueue 검색한 데이터를 입력하는 것, method
         retrofitReturn.enqueue(new Callback<NaverParent>() {
 
+            // 요청에 대한 응답을 처리하는 메서드
             @Override
             public void onResponse(Call<NaverParent> call, Response<NaverParent> response) {
                 // 응답을 받았을 때 Http Code가 무엇인지 확인하기 위하여
@@ -61,6 +79,27 @@ public class NaverBookServiceImplV1 implements NaverBookService {
                 // 정상적인 코드가 온 것
                 if(resCode < 300) {
                     Log.d("네이버 응답데이터 : ", response.body().toString());
+
+                    // naver에서 수신한 전체 데이터
+                    NaverParent naverParent = response.body();
+
+                    // naver에서 수신한 전체 데이터에서 도서 리스트 정보만 추출하기
+                    List<NaverBookDTO> bookList = naverParent.items;
+
+                    // 도서 리스트를 사용하여 RecylerView에 데이터를 표현하기 위한
+                    // Adapter를 생성하기
+                    BookViewAdapter bookViewAdapter
+                            = new BookViewAdapter(bookList);
+
+                    // MainActivity에서 전달받은 recylerView에
+                    // Adapter를 setting
+                    recyclerView.setAdapter(bookViewAdapter);
+
+                    //화면에 데이터들을 표현하는데 리스트를 관리할
+                    //Layout Manager를 설정하기
+                    RecyclerView.LayoutManager layoutManager
+                            = new LinearLayoutManager(recyclerView.getContext());
+                    recyclerView.setLayoutManager(layoutManager);
 
                 }else {
                     Log.d("오류발생 : ", response.toString());
