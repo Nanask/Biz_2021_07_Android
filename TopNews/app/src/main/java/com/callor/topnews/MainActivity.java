@@ -5,6 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.callor.topnews.databinding.ActivityMainBinding;
+import com.callor.topnews.service.NaverService;
+import com.callor.topnews.service.impl.NaverNewsServiceImplV1;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -42,5 +48,13 @@ public class MainActivity extends AppCompatActivity {
         main_binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(main_binding.getRoot());
 //        setContentView(R.layout.activity_main);
+
+        // 오늘날짜에 맞춰 데이터 보여주기
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+        String curDate = sd.format(date);
+
+        NaverService naverService = new NaverNewsServiceImplV1(main_binding.newsListView);
+        naverService.getNews("2021-08-11");
     }
 }
