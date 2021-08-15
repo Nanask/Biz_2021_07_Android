@@ -30,7 +30,7 @@ public class NaverAPIServiceV1 {
         //URI 객체 만들기
         URI apiURI = new URI(queryString);
 
-        Http
+
     }
 
 

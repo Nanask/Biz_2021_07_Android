@@ -22,5 +22,5 @@ public class NaverMovieDTO {
     private String pubDate; //	date	검색 결과 영화의 제작년도이다.
     private String director; //	string	검색 결과 영화의 감독이다.
     private String actor; //	string	검색 결과 영화의 출연 배우이다.
-    private String userRating; //	integer	검색 결과 영화에 대한 유저들의 평점이다.
+    private float userRating; //	integer	검색 결과 영화에 대한 유저들의 평점이다.
 }

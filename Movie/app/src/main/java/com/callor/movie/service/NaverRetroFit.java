@@ -16,5 +16,6 @@ public interface NaverRetroFit {
             @Query("query") String query,
             @Query("start") int start,
             @Query("display") int display
+//            @Query("gener") String gener
     );
 }

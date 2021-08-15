@@ -5,5 +5,5 @@ public class Naver {
 
     public static String CLIENT_ID = "QezUT5XmpRQmlpCeWeIw";
     public static String CLIENT_SECRET = "SAD9nDw6Rl";
-    public static String NAVER_BOOK_URL ="https://openapi.naver.com/v1/search/book.json";
+    public static String NAVER_BOOK_URL ="https://openapi.naver.com/v1/search/";
 }
