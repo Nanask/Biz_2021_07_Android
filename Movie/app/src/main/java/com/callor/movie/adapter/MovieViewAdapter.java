@@ -57,7 +57,7 @@ public class MovieViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
 //        Spannable.setSpan(new QuoteSpan(color), movieDTO.getActor())
-        Spanned movieactor = Html.fromHtml(movieDTO.getActor(),Html.FROM_HTML_MODE_COMPACT);
+        Spanned movieactor = Html.fromHtml(movieDTO.getActor(),Html.FROM_HTML_MODE_LEGACY);
         movieBinding.movieItemActor.setText(movieactor);
 //        Spannable movieactor = QuoteSpan
 //        movieBinding.movieItemActor.setText(movieactor);
@@ -68,8 +68,8 @@ public class MovieViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         movieBinding.movieItemPubDate.setText(moviepubDate);
 
 
-//        Spanned movieuserRating = Html.fromHtml(movieDTO.getUserRating(),Html.FROM_HTML_MODE_LEGACY);
-//        movieBinding.movieItemUserRating.setText(movieuserRating);
+        Spanned movieuserRating = Html.fromHtml(String.valueOf(movieDTO.getUserRating()),Html.FROM_HTML_MODE_LEGACY);
+        movieBinding.movieItemUserRating.setText(movieuserRating);
 
         if (!movieDTO.getImage().isEmpty()) {
             Picasso.get().load(movieDTO.getImage()).into(movieBinding.movieItemImage);

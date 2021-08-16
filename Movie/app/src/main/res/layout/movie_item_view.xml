@@ -47,33 +47,37 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/movie_item_actor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:text="TextView" />
 
                         <TextView
                             android:id="@+id/movie_item_pubDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/movie_item_userRating"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="TextView" />
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/movie_item_userRating"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="TextView" />-->
-
                         <RatingBar
                             android:id="@+id/ratingBar"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center"
                             android:numStars="5"
-                            android:stepSize="0.5"/>
+                            android:stepSize="0.5" />
                     </LinearLayout>
 
                 </LinearLayout>
