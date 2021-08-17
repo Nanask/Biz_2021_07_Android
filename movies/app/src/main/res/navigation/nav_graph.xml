@@ -11,6 +11,11 @@
         android:name="com.callor.movies.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
+<!--        다른 fragment를 열 때 데이터를 전달하기 위한 설정 -->
+        <argument
+            android:name="movie_name"
+            app:argType="string"
+            app:nullable="true"/>
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
