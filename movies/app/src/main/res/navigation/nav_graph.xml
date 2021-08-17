@@ -12,10 +12,6 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 <!--        다른 fragment를 열 때 데이터를 전달하기 위한 설정 -->
-        <argument
-            android:name="movie_name"
-            app:argType="string"
-            app:nullable="true"/>
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -32,6 +28,10 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
+        <argument
+            android:name="movie_search"
+            app:argType="string" />
+
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -39,5 +39,8 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.callor.movies.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+<!--        fragment에 데이터를 전달할 속성 -->
+
+    </fragment>
 </navigation>

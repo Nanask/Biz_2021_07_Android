@@ -101,11 +101,13 @@ ActionBar에 메뉴를 그리는 코드가 작성된다.
                     nav_Graph.xml에 선언된
                     fragment ID를 참조하기 위한
                     클래스가 자동으로 생성된다.
-
                     여기서 생성된 action 객체에 fragment에 전달할 데이터를 실어서 보낸다.
+
+                    fragment에 전달할 데이터는
+                    NavDirections 객체를 생성할 때 매개변수로 전달한다.
                      */
                     NavDirections action =
-                    FirstFragmentDirections.actionFirstFragmentToSecondFragment();
+                    FirstFragmentDirections.actionFirstFragmentToSecondFragment(s);
 
                     // 생성된 action에 따라 화면에
                     // sectionFragment를 띄운다.
