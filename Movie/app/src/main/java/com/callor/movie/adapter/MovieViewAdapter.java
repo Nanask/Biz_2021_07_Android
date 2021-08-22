@@ -34,7 +34,7 @@ public class MovieViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+//    LayoutInflater : xml파일을 가져와서 보여주는것?
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         MovieItemViewBinding viewBinding = MovieItemViewBinding.inflate(layoutInflater,parent,false);
 
@@ -50,33 +50,47 @@ public class MovieViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         NaverMovieDTO movieDTO = movieDTOList.get(position);
 
-//        viewHolder.viewBinding.movieItemTitle.setText(movieDTO.getTitle());
+
 
         Spanned movieTitle = Html.fromHtml(movieDTO.getTitle(), Html.FROM_HTML_MODE_LEGACY);
         movieBinding.movieItemTitle.setText(movieTitle);
 
+        String actor = movieDTO.getActor();
+        if(actor.length() != 0) {
+            actor = String.format("배우 : %s", movieDTO.getActor());
+            Spanned movieactor = Html.fromHtml(actor,Html.FROM_HTML_MODE_LEGACY);
+            movieBinding.movieItemActor.setText(movieactor);
+        }else {
+            actor = "배우 없음";
+        }
 
-//        Spannable.setSpan(new QuoteSpan(color), movieDTO.getActor())
-        Spanned movieactor = Html.fromHtml(movieDTO.getActor(),Html.FROM_HTML_MODE_LEGACY);
-        movieBinding.movieItemActor.setText(movieactor);
-//        Spannable movieactor = QuoteSpan
-//        movieBinding.movieItemActor.setText(movieactor);
-//        Spanned movieactor = Html.fromHtml(movieDTO.getActor(),QuoteSpan);
-//        movieBinding.movieItemActor.setText(movieactor);
+        String director = String.format("감독 : %s", movieDTO.getDirector());
+        Spanned moviedirector = Html.fromHtml(director, Html.FROM_HTML_MODE_LEGACY);
+        movieBinding.movieItemDirector.setText(moviedirector);
 
-        Spanned moviepubDate = Html.fromHtml(movieDTO.getPubDate(),Html.FROM_HTML_MODE_LEGACY);
+        String pubDate = String.format("제작년도 : %s", movieDTO.getPubDate());
+        Spanned moviepubDate = Html.fromHtml(pubDate,Html.FROM_HTML_MODE_LEGACY);
         movieBinding.movieItemPubDate.setText(moviepubDate);
 
 
-        Spanned movieuserRating = Html.fromHtml(String.valueOf(movieDTO.getUserRating()),Html.FROM_HTML_MODE_LEGACY);
-        movieBinding.movieItemUserRating.setText(movieuserRating);
+//        float Rating = movieDTO.getUserRating();
+        String sRating = String.format("",movieDTO.getUserRating());
+        if(sRating != null) {
+            sRating = String.format("평점 : %s", movieDTO.getUserRating());
+//            Spanned movieuserRating = Html.fromHtml(sRating,Html.FROM_HTML_MODE_LEGACY);
+            movieBinding.movieItemUserRating.setText(sRating);
+            movieBinding.ratingBar.setRating(movieDTO.getUserRating()/2);
+        }else {
+            sRating = "평점없음";
+            movieBinding.ratingBar.setVisibility(View.GONE);
+        }
+
+
+
 
         if (!movieDTO.getImage().isEmpty()) {
             Picasso.get().load(movieDTO.getImage()).into(movieBinding.movieItemImage);
         }
-//        String userRating =
-
-        movieBinding.ratingBar.setRating(movieDTO.getUserRating()/2);
 
 
 
@@ -87,8 +101,10 @@ public class MovieViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return movieDTOList == null ? 0 : movieDTOList.size();
     }
 
+    // MovieViewHolder 통로 , xml아이디들을 가지고 와서 biding과 연결해주는 통로
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
 
+//        xml에 설정해 놓은 아이디들을 가지고 있음
         public MovieItemViewBinding viewBinding;
 //        public ImageView item_image;
 

@@ -5,9 +5,12 @@
       <map>
         <entry key="..\:/bizworks/AndProject/Movie/app/src/main/res/layout/activity_main.xml" value="0.18020833333333333" />
         <entry key="..\:/bizworks/AndProject/Movie/app/src/main/res/layout/movie_item_view.xml" value="0.22871376811594202" />
-        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/activity_main_home.xml" value="0.221875" />
+        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/layout.xml" value="0.221875" />
         <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/menu.xml" value="0.23385416666666667" />
-        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/movie_item_view.xml" value="0.36614583333333334" />
+        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/movie_item_view.xml" value="0.25" />
+        <entry key="..\:/bizworks/Android/Movie/app/src/main/res/layout/movie_main.xml" value="0.20729166666666668" />
         <entry key="..\:/bizworks/Android/Movie/app/src/main/res/menu/main_toolbar_menu.xml" value="0.2484375" />
       </map>
     </option>

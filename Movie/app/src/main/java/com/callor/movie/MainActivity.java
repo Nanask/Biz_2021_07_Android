@@ -11,26 +11,39 @@ import android.widget.SearchView;
 
 
 import com.callor.movie.databinding.ActivityMainBinding;
+import com.callor.movie.model.NaverMovieDTO;
 import com.callor.movie.service.NaverMovieServiceImplV1;
 import com.callor.movie.service.NaverService;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding main_binding;
     private RecyclerView recyclerView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ArrayList<NaverMovieDTO> moiveList = new ArrayList<>();
 
 //        Toolbar main_toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(main_toolbar);
 
         main_binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(main_binding.getRoot());
+        Random random = new Random();
+
+
+
 
         NaverService naverService = new NaverMovieServiceImplV1(main_binding.movieListView);
+
         naverService.getMoive("harry");
     }
 
