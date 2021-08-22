@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:title="Home"
+        android:visible="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/my_friend"
+        android:enabled="true"
+        android:title="friend"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/my_calendar"
+        android:enabled="true"
+        android:title="calendar"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/my_plantList"
+        android:enabled="true"
+        android:title="plant"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/store"
+        android:enabled="true"
+        android:title="store"/>
+
+</menu>
