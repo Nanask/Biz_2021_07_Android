@@ -23,7 +23,6 @@
             android:text="@string/password"/>
 
         <Button android:text="@string/signin_email"
-            android:theme="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"

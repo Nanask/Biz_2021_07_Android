@@ -1,7 +1,9 @@
 package com.callor.recyclerview.ui.main
 
+import android.R
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,15 +32,18 @@ class MainFragment : Fragment() {
             inflater, container,
             false
         )
+
+
         return binding.root
     }
 
-    // fragment를 처리하는 코드
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//
-//    }
+
+//     fragment를 처리하는 코드
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecycler()
+
+    }
 
     private fun initRecycler() {
         listAdapter = listAdapter(this)
@@ -51,6 +56,9 @@ class MainFragment : Fragment() {
             add(main_list_data("456465", "4565", "ddd3"))
 
             listAdapter.data = data
+
+            Log.d("data {}","데이터들어감?")
+            listAdapter.notifyDataSetChanged()
         }
 
     }
