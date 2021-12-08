@@ -30,8 +30,21 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rc_list"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_marginTop="10dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="341dp" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
